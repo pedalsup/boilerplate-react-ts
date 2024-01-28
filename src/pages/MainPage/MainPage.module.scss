@@ -1,0 +1,68 @@
+@import "@common";
+
+/* stylelint-disable selector-pseudo-class-no-unknown,
+selector-class-pattern, keyframes-name-pattern, no-duplicate-selectors */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--darkTextPrimary);
+}
+
+.body {
+  padding: 2.4rem;
+}
+
+$translateY: -300px;
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  height: 15rem;
+  background: red;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  transform: translateY($translateY);
+}
+
+@keyframes :global(Move) {
+  from {
+    transform: translateY($translateY);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes :global(Rotate) {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+:global {
+  .enter-active {
+    animation: Move 0.2s forwards linear;
+  }
+
+  .enter-done {
+    animation: Rotate 0.2s infinite linear;
+  }
+
+  .exit-active {
+    animation: Move 0.2s reverse;
+  }
+}
