@@ -1,6 +1,6 @@
 import { Navigate, RouteObject } from 'react-router-dom';
 import { TradePageContainer } from '../pages/TradesPageContainer/TradePageContainer';
-import { MarketPage } from '../pages/TradesPageContainer/inside/MarketPage/MarketPage';
+import { MarketPage } from '../pages/TradesPageContainer/inside/MarketPage';
 import AuthLayout from '../layouts/AuthLayout';
 import { Trade } from '../layouts/PageLayout';
 import { AuthPage } from '../pages/AuthPage';
@@ -24,8 +24,15 @@ const publicRoutes: RouteObject[] = [
       </Trade>
     ),
     children: [
-      { index: true, element: <MarketPage /> },
-      { path: 'market', index: true, element: <MarketPage /> },
+      { index: true, element: <Navigate to="/trade/market" replace /> },
+      {
+        path: 'market',
+        element: <MarketPage />,
+        // index: true,
+        // children: [
+        //   { path: ':marketName', index: true, element: <MarketPage /> },
+        // ],
+      },
     ],
   },
   { path: '*', element: <Navigate to="/connect" replace /> },

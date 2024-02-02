@@ -11,7 +11,7 @@ export const RouteTour: FC = () => (
     <h2>Private Routes</h2>
     <div className={s.root__routes}>
       <code>
-        <Link to="/">/</Link>
+        <Link to="/home">/home</Link>
       </code>
       <code>
         <Link to="/trade/portfolio">/trade/portfolio</Link>
