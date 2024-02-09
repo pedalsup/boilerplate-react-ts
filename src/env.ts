@@ -1,4 +1,4 @@
 export const ENV = {
-  IS_DEV: (process.env.NODE_ENV || '') !== 'production',
-  IS_PRODUCTION: process.env.IS_PRODUCTION || false,
+  IS_DEV: (import.meta.env.VITE_NODE_ENV || '') !== 'production',
+  IS_PRODUCTION: import.meta.env.VITE_IS_PRODUCTION || false,
 };
